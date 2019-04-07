@@ -56,9 +56,6 @@ class MatPHP {
 			return "resource";
 		return "unknown";
 	}
-	public function size() {
-		return count($this->data);
-	}
 	public function exponentiation(array $matrix) {}
 	public function modulus(array $matrix) {}
 	public function division(array $matrix) {}
@@ -79,6 +76,20 @@ class MatPHP {
 	}
 	public function getData() {
 		return $this->data;
+	}
+	public function getSize() {
+		$rows=count($this->data);
+		$columns=0;
+		// if($this->data === []) {
+		if($this->data !== []) {
+			if(is_array($this->data[0])) {
+				$columns=count($this->data[0]);
+			}
+			else {
+				$columns=1;
+			}
+		}
+		return [$rows,$columns];
 	}
 	public function isEqual(self $matrix): bool
 	{
@@ -146,12 +157,13 @@ class MatPHP {
 // $mat=new MatPHP([1,2,3,4,5,6,7,8,9,[0,5,10]]);
 $mat=new MatPHP([[1,2,3],[4,5,6]]);
 print_r( $mat->getData() );
+// print_r( $mat->getSize() );
 $mat->resize(2,2);
 // $mat->resize(1,2);
 print_r( $mat->getData() );
+// print_r( $mat->getSize() );
 $mat=new MatPHP();
 // print_r( $mat->getData() );
-
 // $z=new MatPHP([]);
 // $z->zeros(2);
 // print_r( $z->getData() );
