@@ -16,6 +16,7 @@ class MatPHP {
 		$size=count($matrix);
 		if($matrix != []) {
 			$type=gettype($matrix[0]); // 'array' or other...
+			// $type=$this->getType($matrix[0]); // 'array' or other...
 			// print $type."\n";
 			foreach($matrix as $row) {
 				if(gettype($row) !== $type) {
