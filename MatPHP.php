@@ -39,4 +39,10 @@ class MatPHP {
 	{
 		return $this->getData() === $matrix->getData();
 	}
+	public function inverse() {
+
+	}
+	public function determinant() {
+
+	}
 }
