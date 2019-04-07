@@ -13,8 +13,8 @@ class MatPHP {
 	private $data=[];
 	function __construct(array $matrix,bool $check=true) {
 		// print_r($matrix);
-		$size=count($matrix);
 		if($matrix !== [] && $check === true) {
+			$size=count($matrix[0]);
 			$type=gettype($matrix[0]); // 'array' or other...
 			// $type=$this->getType($matrix[0]); // 'array' or other...
 			// print $type."\n";
@@ -24,6 +24,7 @@ class MatPHP {
 					return;
 				}
 				if(is_array($row)) {
+					// print count($row)." != ".$size."\n";
 					if(count($row) != $size) {
 						print "Error: Different size!\n";
 						return;
@@ -89,6 +90,23 @@ class MatPHP {
 	public function determinant() {
 
 	}
+	public function resize(int $size_w,int $size_h=null) {
+		// print_r($this->data);
+		// print count($this->data)."\n";
+		// for($x=$size_w;$x<=count($this->data);$x++) {
+		// 	unset($this->data[$x]);
+		// }
+		for($x=0;$x<=count($this->data);$x++) {
+			if($x < $size_w) {
+				for($y=$size_h;$y<=count($this->data);$y++) {
+					unset($this->data[$x][$y]);
+				}
+			}
+			else {
+				unset($this->data[$x]);
+			}
+		}
+	}
 	public function zeros(int $size_w,int $size_h=1) {
 		$this->data=[];
 		$row=[];
@@ -124,8 +142,12 @@ class MatPHP {
 		// }
 	}
 }
-$mat=new MatPHP([1,2,3,4,5,6,7,8,9]);
+// $mat=new MatPHP([1,2,3,4,5,6,7,8,9]);
 // $mat=new MatPHP([1,2,3,4,5,6,7,8,9,[0,5,10]]);
+$mat=new MatPHP([[1,2,3],[4,5,6]]);
+print_r( $mat->getData() );
+$mat->resize(2,2);
+// $mat->resize(1,2);
 print_r( $mat->getData() );
 
 // $z=new MatPHP([]);
