@@ -34,6 +34,9 @@ class MatPHP {
 		}
 		$this->data=$matrix;
 	}
+	public function isEmpty(): bool {
+		return empty($this->data) || is_null($this->data);
+	}	
 	public function getType($value)
 	{
 		if(is_null($value))
