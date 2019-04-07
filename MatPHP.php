@@ -20,12 +20,12 @@ class MatPHP {
 			// print $type."\n";
 			foreach($matrix as $row) {
 				if(gettype($row) !== $type) {
-					print "Error: Different type!";
+					print "Error: Different type!\n";
 					return;
 				}
 				if(is_array($row)) {
 					if(count($row) != $size) {
-						print "Error: Different size!";
+						print "Error: Different size!\n";
 						return;
 					}
 				}
@@ -113,6 +113,7 @@ class MatPHP {
 $mat=new MatPHP([1,2,3,4,5,6,7,8,9]);
 // $mat=new MatPHP([1,2,3,4,5,6,7,8,9,[0,5,10]]);
 print_r( $mat->getData() );
+
 // $z=new MatPHP([]);
 // $z->zeros(2);
 // print_r( $z->getData() );
