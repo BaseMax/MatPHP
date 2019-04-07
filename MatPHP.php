@@ -11,10 +11,10 @@
 **/
 class MatPHP {
 	private $data=[];
-	function __construct(array $matrix) {
+	function __construct(array $matrix,bool $check=true) {
 		// print_r($matrix);
 		$size=count($matrix);
-		if($matrix != []) {
+		if($matrix !== [] && $check === true) {
 			$type=gettype($matrix[0]); // 'array' or other...
 			// $type=$this->getType($matrix[0]); // 'array' or other...
 			// print $type."\n";
