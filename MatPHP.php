@@ -32,6 +32,9 @@ class MatPHP {
 		$result=[];
 		return $result;
 	}
+	public function setData(array $matrix) {
+		$this->data=$matrix;
+	}
 	public function getData() {
 		return $this->data;
 	}
@@ -46,7 +49,8 @@ class MatPHP {
 
 	}
 	public function zeros(int $size_w,int $size_h=1) {
-		$this->data=[];
+		// $this->data=[];
+		$this->setData([]);
 		for($x=0;$x<$size_h;$x++){
 			$row=[];
 			for($y=0;$y<$size_w;$y++){
@@ -56,7 +60,8 @@ class MatPHP {
 		}
 	}
 	public function ones(int $size_w,int $size_h=1) {
-		$this->data=[];
+		// $this->data=[];
+		$this->setData([]);
 		for($x=0;$x<$size_h;$x++){
 			$row=[];
 			for($y=0;$y<$size_w;$y++){
