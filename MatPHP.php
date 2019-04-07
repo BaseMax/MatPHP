@@ -9,3 +9,5 @@
 * @Repository : https://github.com/BaseMax/MatPHP
 *
 **/
+class MatPHP {
+}
