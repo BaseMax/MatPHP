@@ -20,4 +20,16 @@ class MatPHP {
 	public function exponentiation(array $matrix) {}
 	public function modulus(array $matrix) {}
 	public function division(array $matrix) {}
+	public function addition(array $matrix) {
+		$result=[];
+		return $result;
+	}
+	public function subtraction(array $matrix) {
+		$result=[];
+		return $result;
+	}
+	public function multiplication(array $matrix) {
+		$result=[];
+		return $result;
+	}
 }
