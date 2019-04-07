@@ -101,19 +101,19 @@ class MatPHP {
 	public function determinant() {
 
 	}
-	public function resize(int $size_w,int $size_h=null) {
+	public function resize(int $size_w=null,int $size_h=null) {
 		// print_r($this->data);
 		// print count($this->data)."\n";
 		// for($x=$size_w;$x<=count($this->data);$x++) {
 		// 	unset($this->data[$x]);
 		// }
 		for($x=0;$x<=count($this->data);$x++) {
-			if($x < $size_w) {
+			if($size_h !== null && $x < $size_w) {
 				for($y=$size_h;$y<=count($this->data);$y++) {
 					unset($this->data[$x][$y]);
 				}
 			}
-			else {
+			else if($size_w !== null) {
 				unset($this->data[$x]);
 			}
 		}
