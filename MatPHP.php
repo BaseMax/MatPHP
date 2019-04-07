@@ -45,4 +45,24 @@ class MatPHP {
 	public function determinant() {
 
 	}
+	public function zeros(int $size_w,int $size_h=1) {
+		$this->data=[];
+		for($x=0;$x<$size_h;$x++){
+			$row=[];
+			for($y=0;$y<$size_w;$y++){
+				$row[]=0;
+			}
+			$this->data[]=$row;
+		}
+	}
+	public function ones(int $size_w,int $size_h=1) {
+		$this->data=[];
+		for($x=0;$x<$size_h;$x++){
+			$row=[];
+			for($y=0;$y<$size_w;$y++){
+				$row[]=1;
+			}
+			$this->data[]=$row;
+		}
+	}
 }
