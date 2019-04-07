@@ -1,2 +1,3 @@
-# ArrayPHP
-A tiny library...
+# MTPHP
+
+The tiny library to calculating the matrices and operations. (Soon)
