@@ -12,7 +12,47 @@
 class MatPHP {
 	private $data=[];
 	function __construct(array $matrix) {
+		// print_r($matrix);
+		$size=count($matrix);
+		if($matrix != []) {
+			$type=gettype($matrix[0]); // 'array' or other...
+			// print $type."\n";
+			foreach($matrix as $row) {
+				if(gettype($row) !== $type) {
+					print "Error: Different type!";
+					return;
+				}
+				if(is_array($row)) {
+					if(count($row) != $size) {
+						print "Error: Different size!";
+						return;
+					}
+				}
+			}
+		}
 		$this->data=$matrix;
+	}
+	public function getType($value)
+	{
+		if(is_null($value))
+			return "NULL";
+		if(is_float($value))
+			return "float";
+		if(is_int($value))
+			return "integer";
+		if(is_bool($value))
+			return "boolean";
+		if(is_array($value))
+			return "array";
+		if(is_string($value))
+			return "string";
+		if(is_numeric($value))
+			return "numeric";
+		if(is_object($value))
+			return "object";
+		if(is_resource($value))
+			return "resource";
+		return "unknown";
 	}
 	public function size() {
 		return count($this->data);
@@ -49,8 +89,7 @@ class MatPHP {
 
 	}
 	public function zeros(int $size_w,int $size_h=1) {
-		// $this->data=[];
-		$this->setData([]);
+		$this->data=[];
 		for($x=0;$x<$size_h;$x++){
 			$row=[];
 			for($y=0;$y<$size_w;$y++){
@@ -60,8 +99,7 @@ class MatPHP {
 		}
 	}
 	public function ones(int $size_w,int $size_h=1) {
-		// $this->data=[];
-		$this->setData([]);
+		$this->data=[];
 		for($x=0;$x<$size_h;$x++){
 			$row=[];
 			for($y=0;$y<$size_w;$y++){
@@ -71,3 +109,9 @@ class MatPHP {
 		}
 	}
 }
+$mat=new MatPHP([1,2,3,4,5,6,7,8,9]);
+// $mat=new MatPHP([1,2,3,4,5,6,7,8,9,[0,5,10]]);
+print_r( $mat->getData() );
+// $z=new MatPHP([]);
+// $z->zeros(2);
+// print_r( $z->getData() );
