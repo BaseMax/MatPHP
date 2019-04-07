@@ -10,4 +10,11 @@
 *
 **/
 class MatPHP {
+	private $data=[];
+	function __construct(array $matrix) {
+		$this->data=$matrix;
+	}
+	public function size() {
+		return count($this->data);
+	}
 }
