@@ -11,7 +11,7 @@
 **/
 class MatPHP {
 	private $data=[];
-	function __construct(array $matrix,bool $check=true) {
+	function __construct(array $matrix=[],bool $check=true) {
 		// print_r($matrix);
 		if($matrix !== [] && $check === true) {
 			$size=count($matrix[0]);
@@ -149,6 +149,8 @@ print_r( $mat->getData() );
 $mat->resize(2,2);
 // $mat->resize(1,2);
 print_r( $mat->getData() );
+$mat=new MatPHP();
+// print_r( $mat->getData() );
 
 // $z=new MatPHP([]);
 // $z->zeros(2);
