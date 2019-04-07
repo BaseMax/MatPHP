@@ -32,4 +32,11 @@ class MatPHP {
 		$result=[];
 		return $result;
 	}
+	public function getData() {
+		return $this->data;
+	}
+	public function isEqual(self $matrix): bool
+	{
+		return $this->getData() === $matrix->getData();
+	}
 }
