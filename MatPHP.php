@@ -17,4 +17,7 @@ class MatPHP {
 	public function size() {
 		return count($this->data);
 	}
+	public function exponentiation(array $matrix) {}
+	public function modulus(array $matrix) {}
+	public function division(array $matrix) {}
 }
