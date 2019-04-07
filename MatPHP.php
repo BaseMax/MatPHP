@@ -98,6 +98,13 @@ class MatPHP {
 		for($x=0;$x<$size_h;$x++){
 			$this->data[]=$row;
 		}
+		// for($x=0;$x<$size_h;$x++){
+		// 	$row=[];
+		// 	for($y=0;$y<$size_w;$y++){
+		// 		$row[]=0;
+		// 	}
+		// 	$this->data[]=$row;
+		// }
 	}
 	public function ones(int $size_w,int $size_h=1) {
 		$this->data=[];
@@ -108,6 +115,13 @@ class MatPHP {
 		for($x=0;$x<$size_h;$x++){
 			$this->data[]=$row;
 		}
+		// for($x=0;$x<$size_h;$x++){
+		// 	$row=[];
+		// 	for($y=0;$y<$size_w;$y++){
+		// 		$row[]=1;
+		// 	}
+		// 	$this->data[]=$row;
+		// }
 	}
 }
 $mat=new MatPHP([1,2,3,4,5,6,7,8,9]);
