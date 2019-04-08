@@ -59,9 +59,12 @@ class MatPHP {
 			return "resource";
 		return "unknown";
 	}
-	public function exponentiation(array $matrix) {}
-	public function modulus(array $matrix) {}
-	public function division(array $matrix) {}
+	// public function exponentiation(array $matrix) {}
+	// public function modulus(array $matrix) {}
+	public function division(array $matrix) {
+		$result=[];
+		return $result;
+	}
 	public function addition(array $matrix) {
 		$result=[];
 		return $result;
