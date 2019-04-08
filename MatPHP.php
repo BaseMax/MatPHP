@@ -4,7 +4,7 @@
 * @Name : MatPHP.php
 * @Version : 1.0
 * @Programmer : Max
-* @Date : 2019-04-07
+* @Date : 2019-04-07, 2019-04-08
 * @Released under : https://github.com/BaseMax/MatPHP/blob/master/LICENSE
 * @Repository : https://github.com/BaseMax/MatPHP
 *
@@ -13,6 +13,7 @@ class MatPHP {
 	private $data=[];
 	function __construct(array $matrix=[],bool $check=true) {
 		// print_r($matrix);
+		// It should has same of a recursion function.
 		if($matrix !== [] && $check === true) {
 			if(isset($matrix) && is_array($matrix[0])) {
 				$size=count($matrix[0]);
@@ -109,7 +110,7 @@ class MatPHP {
 	public function determinant() {
 
 	}
-	public function resize(int $size_w=null,int $size_h=null) {
+	public function resize(int $size_w=null,int $size_h=null,bool $force=false,float $default=0) {
 		// print_r($this->data);
 		// print count($this->data)."\n";
 		// for($x=$size_w;$x<=count($this->data);$x++) {
@@ -124,6 +125,9 @@ class MatPHP {
 			else if($size_w !== null) {
 				unset($this->data[$x]);
 			}
+		}
+		if($force === true) {
+			// Add $default on other place...
 		}
 	}
 	public function zeros(int $size_w,int $size_h=1) {
@@ -168,7 +172,8 @@ $mat=new MatPHP([]);
 $mat->setData([1,2,3]);
 print_r( $mat->getData() );
 // print_r( $mat->getSize() );
-$mat->resize(2,2);
+// $mat->resize(2,2);
+$mat->resize(2,2,true);
 // $mat->resize(1,2);
 print_r( $mat->getData() );
 // print_r( $mat->getSize() );
