@@ -4,7 +4,7 @@
 * @Name : MatPHP.php
 * @Version : 1.0
 * @Programmer : Max
-* @Date : 2019-04-07, 2019-04-08
+* @Date : 2019-04-07, 2019-04-08, 2019-04-09
 * @Released under : https://github.com/BaseMax/MatPHP/blob/master/LICENSE
 * @Repository : https://github.com/BaseMax/MatPHP
 *
@@ -79,9 +79,40 @@ class MatPHP {
 		$result=[];
 		return $result;
 	}
+	/*
+	 * #Rules
+	 *
+	 * First matrix's column and Second matrix's row must be same.
+	 *
+	 * Result matrix's size will be First matrix's Row and Second matrix's Column.
+	 *
+	 * @url : https://en.wikipedia.org/wiki/Matrix_multiplication
+	*/
 	public function multiplication(array $matrix) {
-		$result=[];
-		return $result;
+		// $row=count($this->data);
+		// $column=count($matrix[0]);
+		// $count=count($matrix);
+		// if(count($this->data[0]) != $count) {
+		// 	// echo "Error: Incompatible matrices!";
+		// 	// return;
+		// 	return null;
+		// }
+		// $result=[];
+		// for($i=0;$i < $row;$i++) {
+		// 	for($j=0;$j < $column;$j++) {
+		// 		$result[$i][$j] = 0;
+		// 		for($k=0;$k < $count;$k++) {
+		// 			$result[$i][$j] += $this->data[$i][$k] * $matrix[$k][$j];
+		// 		}
+		// 	}
+		// }
+		// return $result;
+	}
+	public function getRows() {
+
+	}
+	public function getCols() {
+
 	}
 	public function getData() {
 		return $this->data;
@@ -170,14 +201,16 @@ class MatPHP {
 // $mat=new MatPHP([[1,2,3],[4,5,6]]);
 $mat=new MatPHP([]);
 $mat->setData([1,2,3]);
+// $arr=$mat->multiplication([4]);
+// print_r($arr);
 print_r( $mat->getData() );
 // print_r( $mat->getSize() );
 // $mat->resize(2,2);
-$mat->resize(2,2,true);
+// $mat->resize(2,2,true);
 // $mat->resize(1,2);
-print_r( $mat->getData() );
+// print_r( $mat->getData() );
 // print_r( $mat->getSize() );
-$mat=new MatPHP();
+// $mat=new MatPHP();
 // print_r( $mat->getData() );
 // $z=new MatPHP([]);
 // $z->zeros(2);
