@@ -14,25 +14,30 @@ class MatPHP {
 	function __construct(array $matrix=[],bool $check=true) {
 		// print_r($matrix);
 		if($matrix !== [] && $check === true) {
-			$size=count($matrix[0]);
-			$type=gettype($matrix[0]); // 'array' or other...
-			// $type=$this->getType($matrix[0]); // 'array' or other...
-			// print $type."\n";
-			foreach($matrix as $row) {
-				if(gettype($row) !== $type) {
-					print "Error: Different type!\n";
-					return;
-				}
-				if(is_array($row)) {
-					// print count($row)." != ".$size."\n";
-					if(count($row) != $size) {
-						print "Error: Different size!\n";
+			if(isset($matrix) && is_array($matrix[0])) {
+				$size=count($matrix[0]);
+				$type=gettype($matrix[0]); // 'array' or other...
+				// $type=$this->getType($matrix[0]); // 'array' or other...
+				// print $type."\n";
+				foreach($matrix as $row) {
+					if(gettype($row) !== $type) {
+						print "Error: Different type!\n";
 						return;
+					}
+					if(is_array($row)) {
+						// print count($row)." != ".$size."\n";
+						if(count($row) != $size) {
+							print "Error: Different size!\n";
+							return;
+						}
 					}
 				}
 			}
 		}
 		$this->data=$matrix;
+	}
+	public function setData(array $matrix=[],bool $check=true) {
+		return $this->__construct($matrix,$check);
 	}
 	public function isEmpty(): bool {
 		return empty($this->data) || is_null($this->data);
@@ -76,9 +81,6 @@ class MatPHP {
 	public function multiplication(array $matrix) {
 		$result=[];
 		return $result;
-	}
-	public function setData(array $matrix) {
-		$this->data=$matrix;
 	}
 	public function getData() {
 		return $this->data;
@@ -161,7 +163,9 @@ class MatPHP {
 }
 // $mat=new MatPHP([1,2,3,4,5,6,7,8,9]);
 // $mat=new MatPHP([1,2,3,4,5,6,7,8,9,[0,5,10]]);
-$mat=new MatPHP([[1,2,3],[4,5,6]]);
+// $mat=new MatPHP([[1,2,3],[4,5,6]]);
+$mat=new MatPHP([]);
+$mat->setData([1,2,3]);
 print_r( $mat->getData() );
 // print_r( $mat->getSize() );
 $mat->resize(2,2);
